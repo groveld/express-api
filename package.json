@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "nodemon src/index.js",
     "test": "jest",
     "test:watch": "jest --verbose --watchAll",
     "lint": "eslint . --ext .cjs,.js,.ts --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .cjs,.js,.ts --fix --ignore-path .gitignore",
     "format": "prettier . --check --ignore-path .gitignore",
-    "format:fix": "prettier . --write --ignore-path .gitignore",
-    "prepare": "husky install"
+    "format:fix": "prettier . --write --ignore-path .gitignore"
   },
   "lint-staged": {
     "./**/*.+(cjs|js|ts)": [

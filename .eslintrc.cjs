@@ -3,13 +3,11 @@
 module.exports = {
   extends: [],
   plugins: [],
-  parserOptions: {
-    ecmaVersion: 12,
-    sourceType: 'module',
-  },
   env: {
     browser: true,
-    es2021: true,
+    es2022: true,
+    jest: true,
   },
+  parserOptions: {},
   rules: {},
 };

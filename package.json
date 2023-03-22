@@ -11,6 +11,11 @@
     "format": "prettier . --check --ignore-path .gitignore",
     "format:fix": "prettier . --write --ignore-path .gitignore"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "./**/*.+(cjs|js|ts)": [
       "npm run lint",

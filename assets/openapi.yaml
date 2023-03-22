@@ -1,0 +1,39 @@
+openapi: 3.0.3
+info:
+  title: Express-API
+  version: 0.0.1
+servers:
+  - url: http://localhost:3000
+  - url: https://api.groveld.com/v1
+paths:
+  /auth:
+    post:
+      summary: Authenticate user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+                - username
+                - password
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized

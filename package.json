@@ -1,0 +1,25 @@
+{
+  "name": "express-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "test": "jest",
+    "test:watch": "jest --verbose --watchAll",
+    "lint": "eslint . --ext .js,.cjs --fix --ignore-path .gitignore",
+    "format": "prettier . --write"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-openapi-validator": "^5.0.3",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^6.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.21",
+    "supertest": "^6.3.3"
+  }
+}

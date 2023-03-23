@@ -3,8 +3,10 @@ exports.authenticate = (req, res) => {
   const { username, password } = req.body;
 
   if (username === 'username' && password === 'password') {
-    res.status(200).json({ token: 'eadfiuyasdifuyhliudsf' });
+    res.status(200).json({
+      token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9',
+    });
   } else {
-    res.status(401).json({});
+    res.status(401).json({ message: 'failed to login' });
   }
 };

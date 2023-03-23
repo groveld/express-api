@@ -1,6 +1,10 @@
 const cors = require('cors');
 
-const allowedOrigins = ['https://www.groveld.com'];
+const allowedOrigins = [
+  'https://editor.swagger.io',
+  'https://editor-next.swagger.io',
+  'https://www.groveld.com',
+];
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -12,7 +16,7 @@ const corsOptions = {
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+  optionsSuccessStatus: 200,
 };
 
 const corsMiddleware = cors(corsOptions);

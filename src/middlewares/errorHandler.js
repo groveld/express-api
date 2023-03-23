@@ -1,5 +1,6 @@
 // src/middlewares/errorHandler.js
 const util = require('util');
+const logger = require('../utils/logger');
 
 function createOpenApiErrorPayload(err) {
   return {
@@ -17,6 +18,14 @@ function errorHandlerMiddleware(err, req, res, next) {
   }
 
   const errorPayload = createOpenApiErrorPayload(err);
+
+  logger.error(`Error: ${err.message}`, {
+    requestId: req.requestId,
+    info: {
+      ip: req.ip,
+      userAgent: req.headers['user-agent'],
+    },
+  });
 
   res.status(errorPayload.code).json(errorPayload);
 }

@@ -4,21 +4,27 @@ info:
   version: 0.0.1
 servers:
   - url: http://localhost:3000
+
 tags:
   - name: auth
     description: Operations about authentication
+
 paths:
-  /auth:
+  /auth/login:
     post:
       tags:
         - auth
       summary: Authenticate user
+      security: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
+              required:
+                - username
+                - password
               properties:
                 username:
                   type: string
@@ -26,9 +32,6 @@ paths:
                 password:
                   type: string
                   example: password
-              required:
-                - username
-                - password
       responses:
         '200':
           description: Authentication successful
@@ -36,11 +39,45 @@ paths:
             application/json:
               schema:
                 type: object
+                required:
+                  - message
+                  - token
                 properties:
+                  message:
+                    type: string
                   token:
                     type: string
-                    example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
         '400':
-          description: Bad request
+          description: Missing username or password
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         '401':
-          description: Unauthorized
+          description: Invalid username or password
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - message
+        - errors
+      properties:
+        message:
+          type: string
+        errors:
+          type: object
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []

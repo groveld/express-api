@@ -8,16 +8,19 @@ const loggerOptions = {
   format: format.combine(format.timestamp(), format.json()),
 };
 
-const transportOptions = [new transports.Console()];
+const loggerTransports = [];
 
-if (process.env.NODE_ENV == 'production') {
+if (process.env.NODE_ENV === 'production') {
   const logtail = new Logtail('5MdyLnQpkYwtiBiLxJfwGzFW');
-  transportOptions.push(new LogtailTransport(logtail));
+  loggerTransports.push(new LogtailTransport(logtail));
 }
+
+const isTesting = process.env.NODE_ENV === 'test';
+loggerTransports.push(new transports.Console({ silent: isTesting }));
 
 const logger = createLogger({
   loggerOptions,
-  transports: transportOptions,
+  transports: loggerTransports,
 });
 
 module.exports = logger;

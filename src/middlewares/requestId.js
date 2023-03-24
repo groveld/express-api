@@ -1,8 +1,8 @@
 // src/middlewares/requestId.js
-const { v4: uuidv4 } = require('uuid');
+const { ulid } = require('ulid');
 
 const requestIdMiddleware = (req, res, next) => {
-  req.requestId = uuidv4();
+  req.requestId = ulid();
   next();
 };
 

@@ -6,9 +6,21 @@ const { users } = require('../models/User');
 
 const jwtSecret = 'your-secret-key';
 
+const { name, version, description } = require('../../package.json');
+exports.ping = async (req, res) => {
+  res.status(200).json({
+    name,
+    description,
+    version,
+    uptime: process.uptime(),
+  });
+};
+
 exports.login = async (req, res) => {
+  const requestId = req.requestId;
+  console.log(`Request ID: ${requestId} - Received request for /auth/login`);
   logger.info(`Request received - GET /auth/login`, {
-    requestId: req.requestId,
+    requestId,
   });
   const { username, password } = req.body;
   const user = users.find(u => u.username === username);

@@ -4,11 +4,11 @@ info:
   title: Simple Authentication API
   version: 0.0.1
   description: This is a sample server for a pet store.
-  termsOfService: http://example.com/terms/
+  termsOfService: https://www.groveld.com/terms
   contact:
     name: API Support
-    email: support@example.com
-    url: http://example.com/support
+    email: support@groveld.com
+    url: https://www.groveld.com/support
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -19,10 +19,29 @@ servers:
 
 tags:
   - name: auth
+    description: Everything about authentication
   - name: users
+    description: Everything about users
   - name: certificates
+    description: Everything about certificates
+  - name: root
+    description: Everything about root functions
 
 paths:
+  /auth/ping:
+    get:
+      tags:
+        - root
+      summary: 'Get Server Information'
+      operationId: ping
+      security: []
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerInfo'
   /auth/login:
     post:
       tags:
@@ -75,7 +94,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
   /auth/refresh:
     post:
       tags:
@@ -124,7 +142,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
   /auth/logout:
     post:
       tags:
@@ -173,7 +190,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
   /users:
     post:
       tags:
@@ -222,7 +238,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
     get:
       tags:
         - users
@@ -270,7 +285,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-
   /users/{id}:
     get:
       tags:
@@ -322,17 +336,32 @@ paths:
 
 components:
   schemas:
+    ServerInfo:
+      type: 'object'
+      required:
+        - name
+        - description
+        - version
+        - uptime
+      properties:
+        name:
+          type: 'string'
+        description:
+          type: 'string'
+        version:
+          type: 'string'
+        uptime:
+          type: 'number'
     Error:
       type: object
-      required:
-        - message
-        - errors
+      # required:
+      #   - message
+      #   - errors
       properties:
         message:
           type: string
         errors:
           type: object
-
   securitySchemes:
     bearerAuth:
       type: http

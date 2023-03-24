@@ -3,7 +3,7 @@ const cors = require('cors');
 const allowedOrigins = [
   'https://editor.swagger.io',
   'https://editor-next.swagger.io',
-  'https://www.groveld.com',
+  'https://api.groveld.com',
 ];
 
 const corsOptions = {

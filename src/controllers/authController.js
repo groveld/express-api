@@ -8,6 +8,9 @@ const jwtSecret = 'your-secret-key';
 
 const { name, version, description } = require('../../package.json');
 exports.ping = async (req, res) => {
+  const requestId = req.requestId;
+  logger.debug('Request received: GET /auth/ping', { requestId });
+
   res.status(200).json({
     name,
     description,
@@ -18,10 +21,8 @@ exports.ping = async (req, res) => {
 
 exports.login = async (req, res) => {
   const requestId = req.requestId;
-  console.log(`Request ID: ${requestId} - Received request for /auth/login`);
-  logger.info(`Request received - GET /auth/login`, {
-    requestId,
-  });
+  logger.debug('Request received: GET /auth/login', { requestId });
+
   const { username, password } = req.body;
   const user = users.find(u => u.username === username);
 
@@ -46,17 +47,26 @@ exports.login = async (req, res) => {
 };
 
 exports.refresh = async (req, res) => {
+  const requestId = req.requestId;
+  logger.debug('Request received: GET /auth/refresh', { requestId });
   // Placeholder for token refresh logic
 };
 
 exports.logout = async (req, res) => {
+  const requestId = req.requestId;
+  logger.debug('Request received: GET /auth/logout', { requestId });
   // Placeholder for user logout logic
 };
 
 exports.register = async (req, res) => {
+  const requestId = req.requestId;
+  logger.debug('Request received: GET /auth/register', { requestId });
   // Placeholder for user registration logic
 };
 
 exports.protected = async (req, res) => {
+  const requestId = req.requestId;
+  logger.debug('Request received: GET /auth/protected', { requestId });
+
   res.status(200).json({ message: 'Protected route' });
 };

@@ -2,7 +2,7 @@
 const request = require('supertest');
 const app = require('../src/app');
 
-describe('Auth Endpoint', () => {
+describe('User Authentication Test', () => {
   test('It should return a JWT access and refresh token for valid credentials', async () => {
     const response = await request(app)
       .post('/auth/login')

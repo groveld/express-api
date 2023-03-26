@@ -1,4 +1,4 @@
-// src/controllers/authController.js
+// src/controllers/rootController.js
 const logger = require('../utils/logger');
 
 const { name, version, description } = require('../../package.json');

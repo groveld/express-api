@@ -2,6 +2,7 @@
 const { createLogger, format, transports } = require('winston');
 const { Logtail } = require('@logtail/node');
 const { LogtailTransport } = require('@logtail/winston');
+const { environment, logtailKey } = require('../config');
 
 const loggerOptions = {
   level: 'debug',
@@ -10,12 +11,12 @@ const loggerOptions = {
 
 const loggerTransports = [];
 
-if (process.env.NODE_ENV === 'production') {
-  const logtail = new Logtail('5MdyLnQpkYwtiBiLxJfwGzFW');
+if (environment === 'production') {
+  const logtail = new Logtail(logtailKey);
   loggerTransports.push(new LogtailTransport(logtail));
 }
 
-const isTesting = process.env.NODE_ENV === 'test';
+const isTesting = environment === 'test';
 loggerTransports.push(new transports.Console({ silent: isTesting }));
 
 const logger = createLogger({

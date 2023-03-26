@@ -1,10 +1,9 @@
 // src/controllers/authController.js
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 const logger = require('../utils/logger');
-const { users } = require('../models/User');
-
-const jwtSecret = 'your-secret-key';
+const { users } = require('../models/userModel');
+const { jwtSecret } = require('../config');
 
 exports.login = async (req, res) => {
   const requestId = req.requestId;

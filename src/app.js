@@ -3,14 +3,15 @@ const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
 const compression = require('compression');
+// const cookieParser = require('cookie-parser');
 // const csurf = require('csurf');
 const corsMiddleware = require('./middlewares/cors');
 const rateLimiterMiddleware = require('./middlewares/rateLimiter');
 const errorHandlerMiddleware = require('./middlewares/errorHandler');
 const requestIdMiddleware = require('./middlewares/requestId');
 const OpenApiValidator = require('express-openapi-validator');
-const rootRoutes = require('./routes/root');
-const authRoutes = require('./routes/auth');
+const rootRoutes = require('./routes/rootRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 

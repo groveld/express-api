@@ -1,4 +1,4 @@
-// src/routes/auth.js
+// src/routes/rootRoutes.js
 const router = require('express').Router();
 const rootController = require('../controllers/rootController');
 const auth = require('../middlewares/authentication');

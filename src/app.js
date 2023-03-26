@@ -8,6 +8,7 @@ const rateLimiterMiddleware = require('./middlewares/rateLimiter');
 const errorHandlerMiddleware = require('./middlewares/errorHandler');
 const requestIdMiddleware = require('./middlewares/requestId');
 const OpenApiValidator = require('express-openapi-validator');
+const rootRoutes = require('./routes/root');
 const authRoutes = require('./routes/auth');
 
 const app = express();
@@ -28,6 +29,7 @@ app.use(
   }),
 );
 
+app.use('/', rootRoutes);
 app.use('/auth', authRoutes);
 
 app.use(errorHandlerMiddleware);

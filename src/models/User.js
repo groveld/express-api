@@ -18,11 +18,7 @@ const users = [
     'bart',
     '$2a$12$H97/Xa84Wa.VPXMpvNK5HeF1AQ0nkDPc2a4UXg4jqjynfYpPns3yq',
   ),
-  new User(
-    'd60c6899-5399-4356-8ea6-1197d4bf4b81',
-    'username',
-    '$2a$12$nZ34J7K0/KyAurWtot64RemFjL2Lfw3bUoELWVD72P2gHFSw5QV0K',
-  ),
+  new User('d60c6899-5399-4356-8ea6-1197d4bf4b81', 'username', 'password'),
 ];
 
 module.exports = {

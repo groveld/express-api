@@ -6,19 +6,6 @@ const { users } = require('../models/User');
 
 const jwtSecret = 'your-secret-key';
 
-const { name, version, description } = require('../../package.json');
-exports.ping = async (req, res) => {
-  const requestId = req.requestId;
-  logger.debug('Request received: GET /auth/ping', { requestId });
-
-  res.status(200).json({
-    name,
-    description,
-    version,
-    uptime: process.uptime(),
-  });
-};
-
 exports.login = async (req, res) => {
   const requestId = req.requestId;
   logger.debug('Request received: GET /auth/login', { requestId });
@@ -30,7 +17,8 @@ exports.login = async (req, res) => {
     return res.status(401).json({ message: 'User not found' });
   }
 
-  const passwordMatches = await bcrypt.compare(password, user.password);
+  // const passwordMatches = await bcrypt.compare(password, user.password);
+  const passwordMatches = password === user.password;
 
   if (!passwordMatches) {
     return res.status(401).json({ message: 'Incorrect username or password' });
@@ -62,11 +50,4 @@ exports.register = async (req, res) => {
   const requestId = req.requestId;
   logger.debug('Request received: GET /auth/register', { requestId });
   // Placeholder for user registration logic
-};
-
-exports.protected = async (req, res) => {
-  const requestId = req.requestId;
-  logger.debug('Request received: GET /auth/protected', { requestId });
-
-  res.status(200).json({ message: 'Protected route' });
 };

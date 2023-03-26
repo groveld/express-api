@@ -28,7 +28,7 @@ tags:
     description: Everything about root functions
 
 paths:
-  /auth/ping:
+  /ping:
     get:
       tags:
         - root
@@ -42,6 +42,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServerInfo'
+  /data:
+    get:
+      tags:
+        - root
+      summary: Get data
+      operationId: getData
+      responses:
+        '200':
+          description: Get data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: string
+        '400':
+          description: Missing username or password
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Invalid username or password
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /auth/login:
     post:
       tags:

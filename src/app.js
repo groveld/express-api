@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
 const compression = require('compression');
+const csurf = require('csurf');
 const corsMiddleware = require('./middlewares/cors');
 const rateLimiterMiddleware = require('./middlewares/rateLimiter');
 const errorHandlerMiddleware = require('./middlewares/errorHandler');
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(corsMiddleware);
 app.use(helmet());
 app.use(compression());
+app.use(csurf({ cookie: true }));
 app.use(rateLimiterMiddleware);
 app.use(requestIdMiddleware);
 

@@ -12,6 +12,7 @@ exports.ping = async (req, res) => {
     description,
     version,
     uptime: process.uptime(),
+    yourip: req.ip,
   });
 };
 

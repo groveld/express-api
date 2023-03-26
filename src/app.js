@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
 const compression = require('compression');
-const csurf = require('csurf');
+// const csurf = require('csurf');
 const corsMiddleware = require('./middlewares/cors');
 const rateLimiterMiddleware = require('./middlewares/rateLimiter');
 const errorHandlerMiddleware = require('./middlewares/errorHandler');
@@ -14,14 +14,15 @@ const authRoutes = require('./routes/auth');
 
 const app = express();
 
+app.use(helmet());
+app.use(corsMiddleware);
+app.use(compression());
+// app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(corsMiddleware);
-app.use(helmet());
-app.use(compression());
-app.use(csurf({ cookie: true }));
 app.use(rateLimiterMiddleware);
 app.use(requestIdMiddleware);
+// app.use(csurf({ cookie: true }));
 
 app.use(
   OpenApiValidator.middleware({

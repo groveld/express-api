@@ -1,4 +1,5 @@
-// src/controllers/rootController.js
+// File: src/controllers/rootController.js
+
 const logger = require('../utils/logger');
 
 const { name, version, description } = require('../../package.json');

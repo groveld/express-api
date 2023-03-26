@@ -1,4 +1,5 @@
-// src/middlewares/rateLimiter.js
+// File: src/middlewares/rateLimiter.js
+
 const rateLimiter = require('express-rate-limit');
 
 const rateLimiterMiddleware = rateLimiter({

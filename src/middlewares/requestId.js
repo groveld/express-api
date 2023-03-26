@@ -1,4 +1,5 @@
-// src/middlewares/requestId.js
+// File: src/middlewares/requestId.js
+
 const { ulid } = require('ulid');
 
 const requestIdMiddleware = (req, res, next) => {

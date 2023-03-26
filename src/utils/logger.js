@@ -1,4 +1,5 @@
-// src/utils/logger.js
+// File: src/utils/logger.js
+
 const { createLogger, format, transports } = require('winston');
 const { Logtail } = require('@logtail/node');
 const { LogtailTransport } = require('@logtail/winston');

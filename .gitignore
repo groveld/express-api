@@ -1,3 +1,6 @@
+# File: .gitattributes
+# Docs: https://git-scm.com/docs/gitignore
+
 node_modules/
 dist/
 .vscode/*

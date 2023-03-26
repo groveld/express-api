@@ -1,5 +1,6 @@
-// .prettierrc.cjs
-// https://prettier.io/docs/en/configuration.html
+// File: .prettierrc.cjs
+// Docs: https://prettier.io/docs/en/configuration.html
+
 module.exports = {
   trailingComma: 'all',
   tabWidth: 2,

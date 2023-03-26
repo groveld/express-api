@@ -1,4 +1,5 @@
-// src/index.js
+// File: src/index.js
+
 const app = require('./app');
 const { port } = require('./config');
 

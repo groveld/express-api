@@ -1,4 +1,5 @@
-// src/middlewares/authentication.js
+// File: src/middlewares/authentication.js
+
 const jwt = require('jsonwebtoken');
 const { jwtSecret } = require('../config');
 

@@ -1,4 +1,5 @@
-// src/middlewares/errorHandler.js
+// File: src/middlewares/errorHandler.js
+
 const util = require('util');
 const logger = require('../utils/logger');
 

@@ -1,5 +1,6 @@
-// .eslintrc.cjs
-// https://eslint.org/docs/latest/use/configure/configuration-files
+// File: .eslintrc.cjs
+// Docs: https://eslint.org/docs/latest/use/configure/configuration-files
+
 module.exports = {
   extends: [],
   plugins: [],

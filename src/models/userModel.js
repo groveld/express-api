@@ -1,4 +1,5 @@
-// src/models/userModel.js
+// File: src/models/userModel.js
+
 class User {
   constructor(id, username, password) {
     this.id = id;

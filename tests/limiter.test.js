@@ -1,4 +1,5 @@
-// tests/limiter.test.js
+// File: tests/limiter.test.js
+
 const request = require('supertest');
 const app = require('../src/app');
 

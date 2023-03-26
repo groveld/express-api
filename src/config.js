@@ -1,4 +1,4 @@
-// src/config.js
+// File: src/config.js
 
 if (process.env.NODE_ENV !== 'production') {
   const dotenv = require('dotenv');

@@ -2,8 +2,8 @@
 // Docs: https://eslint.org/docs/latest/use/configure/configuration-files
 
 module.exports = {
-  extends: ['prettier'],
-  plugins: [],
+  extends: ['prettier', 'eslint:recommended'],
+  plugins: ['prettier'],
   env: {
     browser: true,
     es2022: true,

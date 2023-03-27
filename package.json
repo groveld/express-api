@@ -1,6 +1,6 @@
 {
   "name": "express-api",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "This is a sample server for a pet store",
   "scripts": {

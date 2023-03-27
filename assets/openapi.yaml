@@ -284,6 +284,13 @@ paths:
         - users
       summary: Authenticate user
       operationId: getUserId
+      parameters:
+        - name: userId
+          in: path
+          description: ID of user to return
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Get user id successful

@@ -67,6 +67,61 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /cert:
+    get:
+      tags:
+        - certificate
+      summary: Get All Certificates
+      operationId: getAllCert
+      responses:
+        '200':
+          description: Get data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  certificates:
+                    type: array
+        '404':
+          description: 'no data found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /cert/{certId}:
+    get:
+      tags:
+        - certificate
+      summary: Get Certificate
+      operationId: getCertId
+      parameters:
+        - name: certId
+          in: path
+          description: ID of certificate to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Get Certificate
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  certificate:
+                    type: object
+        '404':
+          description: 'no data found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /auth/login:
     post:
       tags:

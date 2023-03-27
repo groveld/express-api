@@ -11,7 +11,7 @@ function validateEnvVariable(name) {
   }
 }
 
-const requiredVariables = ['NODE_ENV', 'PORT', 'LOGTAIL_KEY', 'JWT_SECRET'];
+const requiredVariables = ['PORT', 'LOGTAIL_KEY', 'JWT_SECRET'];
 
 requiredVariables.forEach(validateEnvVariable);
 

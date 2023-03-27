@@ -4,7 +4,7 @@
   "private": true,
   "description": "This is a sample server for a pet store",
   "scripts": {
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon src/index.js -e js,json,yaml",
     "test": "jest",
     "test:watch": "jest --verbose --watchAll",
     "lint": "eslint . --ext .cjs,.js,.ts --ignore-path .gitignore",

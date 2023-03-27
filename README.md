@@ -1,5 +1,12 @@
 # express-api
 
+NodeJS
+Express
+TypeScript (TODO)
+ESlint
+Prettier
+Jest
+
 ## TODO
 
 - come up with best way to name files (best practices)

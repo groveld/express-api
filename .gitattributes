@@ -3,8 +3,8 @@
 
 # Auto detect text files and perform LF normalization
 * text=auto eol=lf
+
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
 
-package-lock.json linguist-generated=false
-.husky/* linguist-vendored
+package-lock.json diff=json

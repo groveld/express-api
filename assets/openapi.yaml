@@ -70,7 +70,7 @@ paths:
   /cert:
     get:
       tags:
-        - certificate
+        - certificates
       summary: Get All Certificates
       operationId: getAllCert
       responses:
@@ -94,7 +94,7 @@ paths:
   /cert/{certId}:
     get:
       tags:
-        - certificate
+        - certificates
       summary: Get Certificate
       operationId: getCertId
       parameters:
@@ -116,6 +116,12 @@ paths:
                     type: string
                   certificate:
                     type: object
+        '401':
+          description: 'no data found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
         '404':
           description: 'no data found'
           content:

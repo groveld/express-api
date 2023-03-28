@@ -67,6 +67,61 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /cert:
+    get:
+      tags:
+        - certificate
+      summary: Get All Certificates
+      operationId: getAllCert
+      responses:
+        '200':
+          description: Get data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  certificates:
+                    type: array
+        '404':
+          description: 'no data found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /cert/{certId}:
+    get:
+      tags:
+        - certificate
+      summary: Get Certificate
+      operationId: getCertId
+      parameters:
+        - name: certId
+          in: path
+          description: ID of certificate to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Get Certificate
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  certificate:
+                    type: object
+        '404':
+          description: 'no data found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /auth/login:
     post:
       tags:
@@ -132,9 +187,9 @@ paths:
             schema:
               type: object
               required:
-                - access_token
+                - refresh_token
               properties:
-                access_token:
+                refresh_token:
                   type: string
       responses:
         '200':
@@ -151,14 +206,14 @@ paths:
                     type: string
                   access_token:
                     type: string
-        '400':
-          description: Missing access token
+        '404':
+          description: User not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
         '401':
-          description: Invalid or expired access token
+          description: Invalid or expired refresh token
           content:
             application/json:
               schema:
@@ -183,6 +238,48 @@ paths:
       responses:
         '200':
           description: Logout successful
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing username or password
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Invalid username or password
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /auth/register:
+    post:
+      tags:
+        - auth
+      summary: Register new user
+      operationId: registerUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - username
+                - password
+              properties:
+                email:
+                  type: string
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '201':
+          description: Created new user successful
           content:
             application/json:
               schema:

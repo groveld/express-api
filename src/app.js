@@ -13,6 +13,7 @@ const requestIdMiddleware = require('./middlewares/requestId');
 const OpenApiValidator = require('express-openapi-validator');
 const rootRoutes = require('./routes/rootRoutes');
 const authRoutes = require('./routes/authRoutes');
+const certRoutes = require('./routes/certRoutes');
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use(
 
 app.use('/', rootRoutes);
 app.use('/auth', authRoutes);
+app.use('/cert', certRoutes);
 
 app.use(errorHandlerMiddleware);
 

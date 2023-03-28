@@ -7,7 +7,7 @@ describe('User Authentication Test', () => {
   test('It should return a JWT access and refresh token for valid credentials', async () => {
     const response = await request(app)
       .post('/auth/login')
-      .send({ username: 'username', password: 'password' });
+      .send({ username: 'Alice', password: 'password123' });
     expect(response.statusCode).toBe(200);
     expect(response.body.access_token).toBeDefined();
     expect(response.body.refresh_token).toBeDefined();

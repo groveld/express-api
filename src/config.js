@@ -11,13 +11,29 @@ function validateEnvVariable(name) {
   }
 }
 
-const requiredVariables = ['PORT', 'LOGTAIL_KEY', 'JWT_SECRET'];
+const requiredVariables = [
+  'APP_PORT',
+  'LOGTAIL_KEY',
+  'JWT_SECRET',
+  'JWT_REFRESH_SECRET',
+  'DB_USERNAME',
+  'DB_PASSWORD',
+  'DB_NAME',
+  'DB_HOST',
+  'DB_PORT',
+];
 
 requiredVariables.forEach(validateEnvVariable);
 
 module.exports = {
   environment: process.env.NODE_ENV,
-  port: process.env.PORT,
+  appPort: process.env.APP_PORT,
   logtailKey: process.env.LOGTAIL_KEY,
   jwtSecret: process.env.JWT_SECRET,
+  jwtRefreshSecret: process.env.JWT_REFRESH_SECRET,
+  dbUsername: process.env.DB_USERNAME,
+  dbPassword: process.env.DB_PASSWORD,
+  dbName: process.env.DB_NAME,
+  dbHost: process.env.DB_HOST,
+  dbPort: process.env.DB_PORT,
 };

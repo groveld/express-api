@@ -7,3 +7,4 @@
 *.{bat,[bB][aA][tT]} text eol=crlf
 
 package-lock.json diff=json
+.husky/* linguist-vendored

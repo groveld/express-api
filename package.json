@@ -18,8 +18,7 @@
   },
   "lint-staged": {
     "**/*.{json,cjs,js}": [
-      "npm run lint",
-      "npm run format"
+      "npm run style:check"
     ]
   },
   "dependencies": {

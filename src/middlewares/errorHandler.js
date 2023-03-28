@@ -2,7 +2,7 @@
 
 const logger = require('../utils/logger');
 
-const errorHandlerMiddleware = (err, req, res, _next) => {
+const errorHandlerMiddleware = (err, req, res, next) => {
   // Log the error to Logtail
   logger.error('Server error', {
     requestId: req.requestId,

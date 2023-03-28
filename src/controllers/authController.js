@@ -66,7 +66,7 @@ exports.register = async (req, res) => {
   }
 };
 
-exports.logout = async (req, _res) => {
+exports.logout = async (req, res) => {
   const requestId = req.requestId;
   logger.debug('Request received: GET /auth/logout', { requestId });
   // Placeholder for user logout logic

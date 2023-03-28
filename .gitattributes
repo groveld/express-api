@@ -6,4 +6,4 @@
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
 
-.husky/* linguist-vendored
+package-lock.json diff=json

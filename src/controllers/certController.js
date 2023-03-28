@@ -2,7 +2,7 @@
 
 const ISCC = require('../models/isccModel');
 
-exports.getCert = async (_req, res) => {
+exports.getCert = async (req, res) => {
   try {
     const certs = await ISCC.findAll();
 

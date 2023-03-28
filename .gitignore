@@ -9,3 +9,5 @@ dist/
 !.vscode/extensions.json
 **/*.log
 .env
+
+.dccache

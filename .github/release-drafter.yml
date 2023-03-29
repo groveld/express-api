@@ -2,7 +2,7 @@
 # File: .github/release-drafter.yml
 # Docs: https://github.com/marketplace/actions/release-drafter
 
-name-template: 'v$RESOLVED_VERSION 🌈'
+name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 categories:
   - title: '🚀 Features'

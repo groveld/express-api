@@ -9,7 +9,8 @@ const compression = require('compression');
 const corsMiddleware = require('./middlewares/cors');
 const rateLimiterMiddleware = require('./middlewares/rateLimiter');
 const errorHandlerMiddleware = require('./middlewares/errorHandler');
-const requestIdMiddleware = require('./middlewares/requestId');
+// const requestIdMiddleware = require('./middlewares/requestId');
+const requestLoggerMiddleware = require('./middlewares/requestLogger');
 const OpenApiValidator = require('express-openapi-validator');
 const rootRoutes = require('./routes/rootRoutes');
 const authRoutes = require('./routes/authRoutes');
@@ -24,7 +25,7 @@ app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(rateLimiterMiddleware);
-app.use(requestIdMiddleware);
+app.use(requestLoggerMiddleware);
 // app.use(csurf({ cookie: true }));
 
 app.use(

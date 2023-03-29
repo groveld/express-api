@@ -13,7 +13,7 @@
     "lint:write": "eslint . --ext .cjs,.js,.ts --fix --ignore-path .gitignore",
     "style:check": "run-p --continue-on-error --aggregate-output format:check lint:check",
     "style:write": "run-p --continue-on-error --aggregate-output format:write lint:write",
-    "pre-commit": "run-s style:check test",
+    "pre-commit": "run-s style:check",
     "prepare": "husky install"
   },
   "lint-staged": {

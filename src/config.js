@@ -14,6 +14,7 @@ function validateEnvVariable(name) {
 const requiredVariables = [
   'APP_PORT',
   'LOGTAIL_KEY',
+  'SALT_ROUNDS',
   'JWT_SECRET',
   'JWT_REFRESH_SECRET',
   'DB_USERNAME',
@@ -29,6 +30,7 @@ module.exports = {
   environment: process.env.NODE_ENV,
   appPort: process.env.APP_PORT,
   logtailKey: process.env.LOGTAIL_KEY,
+  saltRounds: process.env.SALT_ROUNDS,
   jwtSecret: process.env.JWT_SECRET,
   jwtRefreshSecret: process.env.JWT_REFRESH_SECRET,
   dbUsername: process.env.DB_USERNAME,

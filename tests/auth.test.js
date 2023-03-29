@@ -1,5 +1,8 @@
 // File: tests/auth.test.js
 
+// file deepcode ignore NoHardcodedCredentials/test: Test for authentication
+// file deepcode ignore NoHardcodedPasswords/test: Test for authentication
+
 const request = require('supertest');
 const app = require('../src/app');
 

@@ -1,5 +1,7 @@
 // File: src/seeders/seedUsers.js
 
+/* eslint-disable no-console */
+
 const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 

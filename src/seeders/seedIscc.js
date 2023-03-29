@@ -1,5 +1,7 @@
 // File: src/seeders/seedIscc.js
 
+/* eslint-disable no-console */
+
 const ISCC = require('../models/isccModel');
 
 const sampleData = [

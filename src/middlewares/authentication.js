@@ -1,6 +1,6 @@
 // File: src/middlewares/authentication.js
 
-const jwt = require('jsonwebtoken');
+const { verify } = require('jsonwebtoken');
 const { jwtSecret } = require('../config');
 
 const authenticationMiddleware = (req, res, next) => {
@@ -13,7 +13,7 @@ const authenticationMiddleware = (req, res, next) => {
   const token = authHeader.split(' ')[1];
 
   try {
-    const decoded = jwt.verify(token, jwtSecret);
+    const decoded = verify(token, jwtSecret);
     req.userId = decoded.userId;
     next();
   } catch (err) {

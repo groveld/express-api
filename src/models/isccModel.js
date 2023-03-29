@@ -3,7 +3,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../database');
 
-const ISCC = sequelize.define('isccs', {
+const ISCC = sequelize.define('iscc_import', {
   cert_id: {
     type: DataTypes.STRING,
     primaryKey: true,

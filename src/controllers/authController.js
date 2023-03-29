@@ -1,43 +1,51 @@
 // File: src/controllers/authController.js
 
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+const { sign, verify } = require('jsonwebtoken');
+const { hash, compare } = require('bcryptjs');
 const User = require('../models/userModel');
-const logger = require('../utils/logger');
 const { jwtSecret, jwtRefreshSecret } = require('../config');
 
 exports.login = async (req, res) => {
   const { username, password } = req.body;
 
-  const user = await User.findOne({ where: { username } });
+  try {
+    const user = await User.findOne({ where: { username } });
+    const samePassword = await compare(password, user.password);
 
-  if (!user || !(await bcrypt.compare(password, user.password))) {
-    return res.status(401).json({ message: 'Invalid credentials' });
+    if (!user || !samePassword) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    const access_token = sign({ userId: user.id }, jwtSecret, {
+      expiresIn: '1h',
+    });
+
+    const refresh_token = sign({ userId: user.id }, jwtRefreshSecret, {
+      expiresIn: '7d',
+    });
+
+    res.status(200).json({
+      message: 'Authentication successful',
+      access_token,
+      refresh_token,
+    });
+  } catch (error) {
+    res.status(400).json({ message: 'Missing credentials' });
   }
-
-  const access_token = jwt.sign({ userId: user.id }, jwtSecret, {
-    expiresIn: '1h',
-  });
-
-  const refresh_token = jwt.sign({ userId: user.id }, jwtRefreshSecret, {
-    expiresIn: '7d',
-  });
-
-  res.json({ message: 'Authenticated', access_token, refresh_token });
 };
 
 exports.refresh = async (req, res) => {
   const { refresh_token } = req.body;
 
   try {
-    const decoded = jwt.verify(refresh_token, jwtRefreshSecret);
+    const decoded = verify(refresh_token, jwtRefreshSecret);
     const user = await User.findOne({ where: { id: decoded.userId } });
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    const access_token = jwt.sign({ userId: user.id }, jwtSecret, {
+    const access_token = sign({ userId: user.id }, jwtSecret, {
       expiresIn: '1h',
     });
 
@@ -51,7 +59,7 @@ exports.register = async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await hash(password, 10);
     const newUser = await User.create({
       username,
       email,
@@ -69,6 +77,5 @@ exports.register = async (req, res) => {
 // eslint-disable-next-line no-unused-vars
 exports.logout = async (req, res) => {
   const requestId = req.requestId;
-  logger.debug('Request received: GET /auth/logout', { requestId });
-  // Placeholder for user logout logic
+  res.status(200).json({ message: `User logged out: ${requestId}` });
 };

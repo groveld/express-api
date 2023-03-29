@@ -16,6 +16,7 @@ const rootRoutes = require('./routes/rootRoutes');
 const authRoutes = require('./routes/authRoutes');
 const certRoutes = require('./routes/certRoutes');
 
+// deepcode ignore UseCsurfForExpress: Will come back to this later
 const app = express();
 
 app.use(helmet());

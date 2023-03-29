@@ -66,6 +66,7 @@ exports.register = async (req, res) => {
   }
 };
 
+// eslint-disable-next-line no-unused-vars
 exports.logout = async (req, res) => {
   const requestId = req.requestId;
   logger.debug('Request received: GET /auth/logout', { requestId });

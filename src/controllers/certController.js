@@ -2,6 +2,7 @@
 
 const ISCC = require('../models/isccModel');
 
+// eslint-disable-next-line no-unused-vars
 exports.getCert = async (req, res) => {
   try {
     const certs = await ISCC.findAll();

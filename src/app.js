@@ -31,7 +31,7 @@ app.use(requestLoggerMiddleware);
 
 app.use(
   OpenApiValidator.middleware({
-    apiSpec: path.join(__dirname, '../assets/openapi.yaml'),
+    apiSpec: path.join(__dirname, '../openapi/openapi.yaml'),
     validateRequests: true,
     validateResponses: true,
   }),

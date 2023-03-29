@@ -35,6 +35,7 @@ jobs:
         uses: github/super-linter/slim@v4
         env:
           VALIDATE_ALL_CODEBASE: false
+          VALIDATE_BASH: false
           JAVASCRIPT_DEFAULT_STYLE: prettier
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

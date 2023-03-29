@@ -1,0 +1,20 @@
+---
+seo:
+  title: Example Developer Portal
+  description: Learn how to work with Example APIs
+logo:
+  image: https://www.groveld.com/assets/img/logo.svg
+  altText: My logo rocks
+nav:
+  - label: Training exercises
+    page: developer-portal/index.md
+  - label: Example page
+    page: developer-portal/markdown.md
+  - label: Example with an icon
+    page: developer-portal/search.md
+    icon: images/redocly-icon-white.png
+  - label: External docs
+    href: 'https://google.com'
+  - search: true
+toc:
+  enable: true

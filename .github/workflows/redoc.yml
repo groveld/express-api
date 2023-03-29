@@ -14,18 +14,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 18
 
       - name: Install Redoc CLI
-        run: npm install -g redoc-cli
+        run: npm install -g @redocly/cli@latest
 
       - name: Generate Redoc documentation
-        run: redoc-cli bundle assets/openapi.yaml -o docs/index.html
+        run: redocly build-docs openapi/openapi.yaml -o docs/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

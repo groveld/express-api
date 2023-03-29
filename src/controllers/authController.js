@@ -3,7 +3,7 @@
 const { sign, verify } = require('jsonwebtoken');
 const { hash, compare } = require('bcryptjs');
 const User = require('../models/userModel');
-const { jwtSecret, jwtRefreshSecret } = require('../config');
+const { jwtSecret, jwtRefreshSecret, saltRounds } = require('../config');
 
 exports.login = async (req, res) => {
   const { username, password } = req.body;
@@ -59,7 +59,7 @@ exports.register = async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
-    const hashedPassword = await hash(password, 10);
+    const hashedPassword = await hash(password, saltRounds);
     const newUser = await User.create({
       username,
       email,

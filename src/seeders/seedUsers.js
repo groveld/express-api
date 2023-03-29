@@ -1,9 +1,11 @@
 // File: src/seeders/seedUsers.js
 
+// file deepcode ignore NoHardcodedPasswords: Seeder for testing purposes
 /* eslint-disable no-console */
 
 const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
+const { saltRounds } = require('../config');
 
 const sampleUsers = [
   {
@@ -26,7 +28,7 @@ const sampleUsers = [
 const hashPasswords = async () => {
   return Promise.all(
     sampleUsers.map(async user => {
-      const hashedPassword = await bcrypt.hash(user.password, 10);
+      const hashedPassword = await bcrypt.hash(user.password, saltRounds);
       return { ...user, password: hashedPassword };
     }),
   );

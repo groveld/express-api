@@ -2,8 +2,7 @@
 
 const logger = require('../utils/logger');
 
-// eslint-disable-next-line no-unused-vars
-const errorHandlerMiddleware = (err, req, res, next) => {
+const errorHandlerMiddleware = (err, req, res, _next) => {
   // Log the error to Logtail
   logger.error('Server error', {
     requestId: req.requestId,

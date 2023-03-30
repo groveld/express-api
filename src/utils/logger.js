@@ -1,28 +1,31 @@
 // File: src/utils/logger.js
 
-const { createLogger, format, transports } = require('winston');
+const { createLogger, transports, format } = require('winston');
 const { Logtail } = require('@logtail/node');
 const { LogtailTransport } = require('@logtail/winston');
-const { environment, logtailKey } = require('../config');
+const { logtailKey } = require('../config');
 
-const loggerOptions = {
-  level: 'debug',
-  format: format.combine(format.timestamp(), format.json()),
-};
+// Initialize Logtail instance
+const logtail = new Logtail(logtailKey);
 
-const loggerTransports = [];
+// Create a custom console format
+const customConsoleFormat = format.printf(({ timestamp, level, message }) => {
+  return `[${timestamp}] ${level.toUpperCase()}: ${message}`;
+});
 
-if (environment === 'production') {
-  const logtail = new Logtail(logtailKey);
-  loggerTransports.push(new LogtailTransport(logtail));
-}
-
-const isTesting = environment === 'test';
-loggerTransports.push(new transports.Console({ silent: isTesting }));
-
+// Create logger with Logtail and Console transports
 const logger = createLogger({
-  loggerOptions,
-  transports: loggerTransports,
+  format: format.combine(
+    format.errors({ stack: true }),
+    format.splat(),
+    format.json(),
+  ),
+  transports: [
+    new LogtailTransport(logtail),
+    new transports.Console({
+      format: customConsoleFormat,
+    }),
+  ],
 });
 
 module.exports = logger;

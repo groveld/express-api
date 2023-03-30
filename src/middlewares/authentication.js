@@ -11,6 +11,11 @@ const authenticationMiddleware = (req, res, next) => {
   }
 
   const token = authHeader.split(' ')[1];
+  const jwtRegex = /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+$/;
+
+  if (!token || !jwtRegex.test(token)) {
+    return res.status(401).json({ message: 'Invalid token format' });
+  }
 
   try {
     const decoded = verify(token, jwtSecret);

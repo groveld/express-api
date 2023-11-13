@@ -36,7 +36,7 @@
     "express-openapi-validator": "^5.0.6",
     "express-rate-limit": "^7.1.1",
     "express-validator": "^7.0.1",
-    "geoip-lite": "^1.4.7",
+    "geoip-lite": "^1.4.8",
     "helmet": "^7.0.0",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",

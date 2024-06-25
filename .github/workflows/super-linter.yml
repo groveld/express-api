@@ -8,7 +8,6 @@ on:
   push:
   pull_request:
     branches:
-      - main
       - master
 
 permissions:
@@ -38,5 +37,5 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_BASH: false
           JAVASCRIPT_DEFAULT_STYLE: prettier
-          DEFAULT_BRANCH: main
+          DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -25,7 +25,7 @@
   "dependencies": {
     "@logtail/node": "^0.5.2",
     "@logtail/winston": "^0.5.2",
-    "bcryptjs": "^2.4.3",
+    "bcryptjs": "^3.0.0",
     "compression": "^1.7.5",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",

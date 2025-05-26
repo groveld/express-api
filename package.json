@@ -23,7 +23,7 @@
     ]
   },
   "dependencies": {
-    "@logtail/node": "^0.5.2",
+    "@logtail/node": "^0.5.5",
     "@logtail/winston": "^0.5.4",
     "bcryptjs": "^3.0.2",
     "compression": "^1.8.0",

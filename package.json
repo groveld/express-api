@@ -28,19 +28,19 @@
     "bcryptjs": "^3.0.3",
     "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
+    "cors": "^2.8.6",
     "csurf": "^1.11.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "express-async-handler": "^1.2.0",
-    "express-openapi-validator": "^5.6.0",
+    "express-openapi-validator": "^5.6.2",
     "express-rate-limit": "^8.2.1",
     "express-validator": "^7.3.1",
     "geoip-lite": "^1.4.10",
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
     "morgan": "^1.10.1",
-    "mysql2": "^3.15.3",
+    "mysql2": "^3.16.1",
     "request-ip": "^3.3.0",
     "sequelize": "^6.37.7",
     "ulid": "^3.0.2",
@@ -49,12 +49,12 @@
   "devDependencies": {
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-prettier": "^5.5.5",
     "husky": "^9.1.7",
     "jest": "^30.2.0",
     "lint-staged": "^16.2.7",
     "nodemon": "^3.1.11",
-    "prettier": "^3.7.4",
-    "supertest": "^7.1.4"
+    "prettier": "^3.8.1",
+    "supertest": "^7.2.2"
   }
 }

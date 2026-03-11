@@ -2,32 +2,32 @@
 version: 2
 
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "06:00"
-      timezone: "Europe/Amsterdam"
+      interval: 'weekly'
+      day: 'monday'
+      time: '06:00'
+      timezone: 'Europe/Amsterdam'
     open-pull-requests-limit: 1
     groups:
       github-actions:
         patterns:
-          - "*"
+          - '*'
     assignees:
       - groveld
 
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "06:00"
-      timezone: "Europe/Amsterdam"
+      interval: 'weekly'
+      day: 'monday'
+      time: '06:00'
+      timezone: 'Europe/Amsterdam'
     open-pull-requests-limit: 1
     groups:
       npm:
         patterns:
-          - "*"
+          - '*'
     assignees:
       - groveld

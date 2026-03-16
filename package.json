@@ -40,7 +40,7 @@
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
     "morgan": "^1.10.1",
-    "mysql2": "^3.19.1",
+    "mysql2": "^3.20.0",
     "request-ip": "^3.3.0",
     "sequelize": "^6.37.8",
     "ulid": "^3.0.2",
@@ -52,7 +52,7 @@
     "eslint-plugin-prettier": "^5.5.5",
     "husky": "^9.1.7",
     "jest": "^30.3.0",
-    "lint-staged": "^16.3.3",
+    "lint-staged": "^16.4.0",
     "nodemon": "^3.1.14",
     "prettier": "^3.8.1",
     "supertest": "^7.2.2"

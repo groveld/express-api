@@ -47,7 +47,7 @@
     "winston": "^3.19.0"
   },
   "devDependencies": {
-    "eslint": "^10.2.1",
+    "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "husky": "^9.1.7",
